@@ -1,0 +1,27 @@
+<script type = "text/javascript">
+    "use strict";
+    function solveEquation(a, b, c) {
+        let discr = (a, b, c) => b * b - 4 * a * c;
+        let d = discr(a, b, c);
+        if (d < 0) return [d];
+
+        let x1 = (-b + Math.sqrt(d)) / (2 * a),
+            x2 = (-b - Math.sqrt(d)) / (2 * a);
+
+        return [d, x1, x2];
+    }
+    let a = +prompt("Enter A:");
+    let b = +prompt("Enter B:");
+    let c = +prompt("Enter C:");
+    let arr = solveEquation(a, b, c);
+    let d = arr[0];
+    console.log(d);
+    alert(`Discriminant: ${d}`);
+    if (d < 0){
+        alert("No solutions");
+    }else if(d === 0){
+        alert(`Only one solution: ${arr[1]}`);
+    }else{
+        alert(`Two solutions: ${arr[1]} and ${arr[2]}`);
+    }
+</script>
